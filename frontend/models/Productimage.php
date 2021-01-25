@@ -40,7 +40,7 @@ class Productimage extends \yii\db\ActiveRecord
     {
         return [
             'imageId' => 'Image ID',
-            'imagePath' => 'Image Path',
+            'imagePath' => 'Add Image',
             'productId' => 'Product ID',
         ];
     }

@@ -14,13 +14,15 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/site.css',
         'css/stepper.css',
+        'css/product.css',
     ];
     public $js = [
         'js/stepper.js',
         'js/modal.js',
+        
     ];
     public $depends = [
         'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
+        'yii\bootstrap4\BootstrapAsset',
     ];
 }

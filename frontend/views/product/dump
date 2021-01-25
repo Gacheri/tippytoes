@@ -67,3 +67,38 @@
         </div>
     </form>
 </div>
+
+
+
+add image
+
+ public function actionAddimage($shoesId)
+    {
+        $model = new Shoesimage();
+        if ($model->load(Yii::$app->request->post()))
+        {
+
+           //generates images with unique names
+            $imageName = bin2hex(openssl_random_pseudo_bytes(10));
+            $model->image = UploadedFile::getInstance($model, 'image');
+            //saves file in the root directory
+            $model->image->saveAs('uploads/.'.$imageName.'.'.$model->image->extension);
+            //save in the db
+            $model->image='uploads/'.$imageName.'.'.$model->image->extension;
+            $model->save();
+            return $this->redirect(['index']);
+        }
+            return $this->render('addimage', [
+                'model' => $model,
+                'shoesId' =>$shoesId,
+
+            ]);
+    }
+
+
+    check errors
+
+    <?php echo $form->errorSummary($model) ?>
+
+    add image
+    Html

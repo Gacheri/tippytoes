@@ -12,7 +12,7 @@ use yii\helpers\Url;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Product */
 /* @var $form yii\widgets\ActiveForm */
-
+$images=new Productimage;
 ?>
 <div class="container">
 <div class="stepwizard">
@@ -32,7 +32,9 @@ use yii\helpers\Url;
         </div>
     </div>
     <div class="product-form ">
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['id' => 'addProduct'],[
+        'options' => ['enctype' => 'multipart/form-data']
+    ]); ?>
         <div class="panel panel-primary setup-content" id="step-1">
             <div class="panel-heading">
                  <h3 class="panel-title">Product description</h3>
@@ -69,7 +71,6 @@ use yii\helpers\Url;
             </div>
             <div class="panel-body">
                 <div class="form-group">
-                    <label class="control-label">Image</label>
                     <?= $form->field($images, 'imagePath')->fileInput(['maxlength' => true]) ?>
                 </div>
                 <div class="form-group">
